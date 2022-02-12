@@ -10,7 +10,6 @@ on:
 
 jobs:
   build:
-    if: github.repository_owner == 'itzg'
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -65,7 +64,7 @@ jobs:
         platforms: linux/amd64,linux/arm/v7,linux/arm64
         # ensure latest base image is used
         pull: true
-        push: true
+        push: false
         build-args: |
           BASE_IMAGE=${{ matrix.baseImage }}
         tags: ${{ steps.meta.outputs.tags }}
